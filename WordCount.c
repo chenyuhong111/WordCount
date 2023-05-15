@@ -21,14 +21,55 @@ int main (int argc, char *argv[])
                 if (s[i] == ',' && s[i - 1] != ',' && s[i + 1] != ',') 
                     cnt ++;
         }
-        printf("å•è¯æ•°=%d\n", cnt);
+        printf("µ¥´ÊÊı=%d\n", cnt);
     }
     else if (argv[1][1] == 'c') 
     {
         char c;
         while ((c = fgetc(fp)) != EOF) cnt ++;
-        printf("å­—ç¬¦æ•°=%d", cnt);
+        printf("×Ö·ûÊı=%d", cnt);
     }
     fclose(fp);
     return 0;
 }
+
+
+/*
+#include <stdio.h>
+#include <string.h>
+int main (int n, char *m[])
+{
+    int num = 0;
+    FILE *fn;
+    if (m[1][1] == 'c')
+    {
+        char c;
+        while ((c = fgetc(fn)) != EOF) num ++;
+        printf("×Ö·ûÊı%d", num);
+    }
+    if (m[1][1] == 'w')
+    {
+        char s[1024];
+        int i; 
+        while (fscanf(fn, "%s", s) != EOF)
+        {
+            num ++;
+            for (i = 1; i < strlen(s) - 1; i ++)
+			{
+                if (s[i] == ',' && s[i - 1] != ',' && s[i + 1] != ',') 
+                    num ++;
+       		}
+        }
+        printf("µ¥´ÊÊı: %d\n", num);
+    }
+    else if ((fn=fopen(m[2], "r")) == NULL)
+    {
+        puts("error!\n");
+        return 0;
+    }
+    fclose(fn);
+    return 0;
+}
+*/
+
+
